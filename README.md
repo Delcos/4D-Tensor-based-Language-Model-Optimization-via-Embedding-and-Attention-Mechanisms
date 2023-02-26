@@ -17,87 +17,11 @@ Given the prefix text, the selection of the output token follows
 
 <img width="942" alt="formulation" src="https://user-images.githubusercontent.com/28798918/221429131-ac105b82-b3e3-4439-840a-19c68be47a14.png">
 
+![Screenshot (2523)](https://user-images.githubusercontent.com/28798918/221429179-070b49f9-0831-42a5-8521-473025c2d75c.png)
 
-***where 
-�
-(
-�
-)
+***This has to be an image because if it's not it gives these character errors on Github: 
 V 
 (k)
-  is the set of top-k predictions from the language model's probability distribution 
-�
-�
-(
-�
-∣
-�
-<
-�
-)
-p 
-θ
-​
- (v∣x 
-<t
-​
- ). The first term, i.e. model confidence, is the probability of the candidate 
-�
-v predicted by the language model. The second term, degeneration penalty, measures how discriminative of 
-�
-v with respect to the previous context 
-�
-<
-�
-x 
-<t
-​
-  and the function 
-�
-(
-⋅
-,
-⋅
-)
-s(⋅,⋅) computes the cosine similarity between the token representations. More specifically, the degeneration penalty is defined as the maximum cosine similarity between the token representation of 
-�
-v, i.e. 
-ℎ
-�
-h 
-v
-​
- , and that of all tokens in the context 
-�
-<
-�
-x 
-<t
-​
- . Here, the candidate representation 
-ℎ
-�
-h 
-v
-​
-  is computed by the language model given the concatenation of 
-�
-<
-�
-x 
-<t
-​
-  and 
-�
-v. Intuitively, a larger degeneration penalty of 
-�
-v means it is more similar (in the representation space) to the context, therefore more likely leading to the problem of model degeneration. The hyperparameter 
-�
-α regulates the importance of these two components. When 
-�
-=
-0
-α=0, contrastive search degenerates to the vanilla greedy search.***
 
 
 
