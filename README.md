@@ -12,6 +12,7 @@ omly drops out a portion of the neural network units during each iteration, furt
 To facilitate seamless integration into user applications, we provide our optimized language model via a RESTful API that exposes a variety of endpoints for tasks such as text classification and language generation. To utilize our API, users may submit HTTP requests to the appropriate endpoint, with the input text as a parameter. The API, powered by a high-performance server, then returns the results of the requested task as a JSON object, which users can incorporate into their applications. When structuring their program, users should consider the size of the input text and ensure it conforms to the optimal length for the model's input layer. ***Additionally, the NATE team (or others) should consider the implications of tokenization and ensure the input text is properly tokenized before submission to the API.*** It is also recommended that users apply additional pre-processing techniques, such as sentence segmentation, part-of-speech tagging, and named entity recognition, to ensure optimal performance of the model. Users should take note of the API's rate limits and formulate requests accordingly.
 
 
+## Basic Network Structure:
 ![63b26a0f10dd571f094accaf_Blank-Template-Charts-Wide-p-800](https://user-images.githubusercontent.com/28798918/221427910-4b23dbf3-e768-4f2a-8d71-f108253cd555.jpg)
 
 
