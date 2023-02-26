@@ -19,7 +19,7 @@ Given the prefix text, the selection of the output token follows
 
 ![Screenshot (2523)](https://user-images.githubusercontent.com/28798918/221429179-070b49f9-0831-42a5-8521-473025c2d75c.png)
 
-***This has to be an image because if it's not it gives these character errors on Github: 
+***This has to be an image because if it's not it gives these character errors on Github:***
  
  
 �
