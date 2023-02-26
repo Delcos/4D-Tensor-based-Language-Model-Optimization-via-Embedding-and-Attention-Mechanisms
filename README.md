@@ -11,6 +11,95 @@ omly drops out a portion of the neural network units during each iteration, furt
 
 To facilitate seamless integration into user applications, we provide our optimized language model via a RESTful API that exposes a variety of endpoints for tasks such as text classification and language generation. To utilize our API, users may submit HTTP requests to the appropriate endpoint, with the input text as a parameter. The API, then returns the results of the requested task as a JSON object, which users can incorporate into their applications. When structuring their program, users should consider the size of the input text and ensure it conforms to the optimal length for the model's input layer. ***Additionally, the NATE team (or others) should consider the implications of tokenization and ensure the input text is properly tokenized before submission to the API.*** It is also recommended that users apply additional pre-processing techniques, such as sentence segmentation, part-of-speech tagging, and named entity recognition, to ensure optimal performance of the model. Users should take note of the API's rate limits and formulate requests accordingly.
 
+## C-Search Ref:
+This is a quick reference for C-Search so that it's all in one place. 
+Given the prefix text, the selection of the output token follows
+
+<img width="942" alt="formulation" src="https://user-images.githubusercontent.com/28798918/221429131-ac105b82-b3e3-4439-840a-19c68be47a14.png">
+
+
+***where 
+�
+(
+�
+)
+V 
+(k)
+  is the set of top-k predictions from the language model's probability distribution 
+�
+�
+(
+�
+∣
+�
+<
+�
+)
+p 
+θ
+​
+ (v∣x 
+<t
+​
+ ). The first term, i.e. model confidence, is the probability of the candidate 
+�
+v predicted by the language model. The second term, degeneration penalty, measures how discriminative of 
+�
+v with respect to the previous context 
+�
+<
+�
+x 
+<t
+​
+  and the function 
+�
+(
+⋅
+,
+⋅
+)
+s(⋅,⋅) computes the cosine similarity between the token representations. More specifically, the degeneration penalty is defined as the maximum cosine similarity between the token representation of 
+�
+v, i.e. 
+ℎ
+�
+h 
+v
+​
+ , and that of all tokens in the context 
+�
+<
+�
+x 
+<t
+​
+ . Here, the candidate representation 
+ℎ
+�
+h 
+v
+​
+  is computed by the language model given the concatenation of 
+�
+<
+�
+x 
+<t
+​
+  and 
+�
+v. Intuitively, a larger degeneration penalty of 
+�
+v means it is more similar (in the representation space) to the context, therefore more likely leading to the problem of model degeneration. The hyperparameter 
+�
+α regulates the importance of these two components. When 
+�
+=
+0
+α=0, contrastive search degenerates to the vanilla greedy search.***
+
+
 
 ## Basic Network Structure:
 ![63b26a0f10dd571f094accaf_Blank-Template-Charts-Wide-p-800](https://user-images.githubusercontent.com/28798918/221427910-4b23dbf3-e768-4f2a-8d71-f108253cd555.jpg)
